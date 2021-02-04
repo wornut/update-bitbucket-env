@@ -3,17 +3,11 @@ import { GluegunCommand } from 'gluegun'
 const command: GluegunCommand = {
   name: 'update-bitbucket-env',
   run: async toolbox => {
-    const { print, config, isClientGood } = toolbox
+    const { print, setupBitbucketCredential } = toolbox
 
-    // const myConf = {
-    //   ...config.loadConfig('credential', process.cwd() + './config/')
-    // }
+    print.info('update bitbucket env cli')
 
-    print.debug(config.loadConfig('credential', process.cwd() + '/.config/'))
-
-    print.info('Welcome to your CLI')
-
-    await isClientGood(toolbox)
+    await setupBitbucketCredential(toolbox)
   }
 }
 
